@@ -2,18 +2,18 @@ import './MyOrders.css';
 
 import Typography from '@material-ui/core/Typography';
 import { DataGrid } from '@material-ui/data-grid';
-// import LaunchIcon from '@material-ui/icons/Launch';
 import React, { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useParams } from 'react-router-dom';
 
 import { myOrders, clearErrors } from '../../Actions/orderAction';
 
 const MyOrders = () => {
     const dispatch = useDispatch();
+    const {id} = useParams();
 
-    const { error, orders } = useSelector((state) => state.myOrder);
+    const { error } = useSelector((state) => state.myOrder);
     const { user } = useSelector((state) => state.user);
 
     const columns = [
@@ -35,6 +35,7 @@ const MyOrders = () => {
     ];
 
     const rows = [];
+
 
     user.orders &&
         user.orders.forEach((item) => {

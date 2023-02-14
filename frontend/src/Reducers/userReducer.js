@@ -10,7 +10,7 @@ export const userReducer = createReducer(initialState, {
     LoginSuccess: (state, action) => {
         state.loading = false;
         state.isAuthenticated = true;
-        state.user = action.payload.user;
+        state.user = action.payload;
     },
     LoginFailure: (state, action) => {
         state.loading = false;
@@ -26,7 +26,7 @@ export const userReducer = createReducer(initialState, {
     RegisterSuccess: (state, action) => {
         state.loading = false;
         state.isAuthenticated = true;
-        state.user = action.payload.user;
+        state.user = action.payload;
     },
     RegisterFailure: (state, action) => {
         state.loading = false;

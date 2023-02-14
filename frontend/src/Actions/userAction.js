@@ -51,6 +51,7 @@ export const loginUser = (phoneNumber, password) => async (dispatch) => {
             type: 'LoginSuccess',
             payload: data,
         });
+
     } catch (error) {
         dispatch({
             type: 'LoginFailure',
@@ -80,7 +81,7 @@ export const loadUser = () => async (dispatch) => {
             type: 'LoadUserRequest',
         });
 
-        const { data } = await axios.get(`/api/v1/me`);
+        const { data } = await axios.get('/api/v1/me');
 
         dispatch({
             type: 'LoadUserSuccess',

@@ -115,7 +115,7 @@ exports.logout = async (req, res) => {
 
 exports.getUser = async (req, res, next) => {
     try {
-        const user = await User.findById(req.user.id).populate('orders');
+        const user = await User.findById(req.user._id).populate('orders');
 
         res.status(200).json({
             success: true,
